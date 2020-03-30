@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="row">
+        <div class="col-md-9 offset-md-1">
         <div class="card">
             <div class="card-header">
                 <h2>编辑资料</h2>
@@ -35,6 +36,7 @@
                   <button type="submit" class="btn btn-primary">保存</button>
                 </form>
             </div>
+        </div>
         </div>
     </div>
 @stop

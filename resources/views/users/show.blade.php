@@ -24,7 +24,18 @@
         <hr>
         <div class="card">
             <div class="card-body">
-                <p>我的帖子，回复占位</p>
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">我的帖子</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">我的回复</a>
+                  </li>
+                </ul>
+                <hr>
+                <div class="mt-2">
+                    @include('users.topics', ['topics' => $user->topics()->created()->with(['user', 'category'])->paginate(5)])
+                </div>
             </div>
         </div>
     </div>

@@ -30,9 +30,9 @@
                             <span class="float-right text-secondary">{{ $topic->reply_count }}</span>
                           </div>
                           <div class="media-body mt-2">
-                            <a href="" class="text-secondary">{{ $topic->category->name }}</a>
+                            <a href="{{ route('categories.show', $topic->category_id) }}" class="text-secondary">{{ $topic->category->name }}</a>
                             <strong>·</strong>
-                            <a href="" class="text-secondary">{{ $topic->user->name }}</a>
+                            <a href="{{ route('users.show', $topic->user_id) }}" class="text-secondary">{{ $topic->user->name }}</a>
                             <strong>·</strong>
                             <span>{{ $topic->created_at->diffForHumans() }}</span>
                           </div>
