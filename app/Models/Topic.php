@@ -14,4 +14,27 @@ class Topic extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeOrderWith($query, $order)
+    {
+        switch ($order) {
+            case 'created':
+                $query->created();
+                break;
+
+            default:
+                $query->updated();
+                break;
+        }
+    }
+
+    public function scopeCreated($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
+
+    public function scopeUpdated($query)
+    {
+        return $query->orderBy('updated_at', 'desc');
+    }
 }

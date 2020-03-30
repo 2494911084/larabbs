@@ -12,10 +12,10 @@
             <div class="card-header">
                 <ul class="nav nav-pills">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#">最近回复</a>
+                    <a class="nav-link active" href="{{ Request::url() }}?order=default">最近回复</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">最新发布</a>
+                    <a class="nav-link" href="{{ Request::url() }}?order=created">最新发布</a>
                   </li>
                 </ul>
             </div>
