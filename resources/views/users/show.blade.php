@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-3">
         <div class="card">
-          <img class="card-img-top" src="https://b-ssl.duitang.com/uploads/item/201608/27/20160827172726_GJfX2.jpeg" alt="Card image cap">
+          <img class="card-img-top" src="{{ $user->avatar }}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-text"><strong>个人简介</strong></h5>
             <p class="card-text">{{ $user->introduction }}</p>

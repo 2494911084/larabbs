@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 @include('shared._errors')
-                <form method="post" action="{{ route('users.update', $user->id) }}">
+                <form method="post" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                   <div class="form-group">
@@ -19,6 +19,13 @@
                   <div class="form-group">
                     <label for="exampleInputEmail">邮箱</label>
                     <input type="email" name="email" readonly value="{{ old('email', $user->email) }}" class="form-control" id="exampleInputEmail" placeholder="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputAvatar">头像</label>
+                    <input type="file" name="avatar" class="form-control-file" id="exampleInputAvatar">
+                    @if ($user->avatar)
+                      <img src="{{ $user->avatar }}" width="200" class="mt-2" alt="GG">
+                    @endif
                   </div>
                   <div class="form-group">
                     <label for="exampleInputIntroduction">个人简介</label>
