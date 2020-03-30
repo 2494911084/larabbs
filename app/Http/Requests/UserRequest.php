@@ -26,7 +26,15 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|min:3|unique:users,name,' . \Auth::id(),
             'email' => 'required|email',
+            'avatar' => 'dimensions:min_width=416,min_height=416',
             'introduction' => 'max:80',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'avatar' => '头像',
         ];
     }
 }

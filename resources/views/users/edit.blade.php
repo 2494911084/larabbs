@@ -21,7 +21,7 @@
                     <input type="email" name="email" readonly value="{{ old('email', $user->email) }}" class="form-control" id="exampleInputEmail" placeholder="email">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputAvatar">头像</label>
+                    <label for="exampleInputAvatar">头像(至少为 416*416)</label>
                     <input type="file" name="avatar" class="form-control-file" id="exampleInputAvatar">
                     @if ($user->avatar)
                       <img src="{{ $user->avatar }}" width="200" class="mt-2" alt="GG">
