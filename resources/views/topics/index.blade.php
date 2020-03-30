@@ -3,6 +3,11 @@
 @section('content')
 <div class="row">
     <div class="col-md-9">
+        @if (isset($category))
+        <div class="alert alert-info">
+            {{ $category->name }}: {{ $category->description }}
+        </div>
+        @endif
         <div class="card">
             <div class="card-header">
                 <ul class="nav nav-pills">
