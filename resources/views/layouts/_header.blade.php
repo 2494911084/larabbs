@@ -32,7 +32,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}">个人中心</a>
-                              <a class="dropdown-item" href="#">编辑资料</a>
+                              <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}">编辑资料</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">
                                   <form action="{{ route('logout') }}" method="post" onsubmit="return confirm('确认退出登录?');">

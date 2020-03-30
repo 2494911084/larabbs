@@ -7,7 +7,7 @@
           <img class="card-img-top" src="https://b-ssl.duitang.com/uploads/item/201608/27/20160827172726_GJfX2.jpeg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-text"><strong>个人简介</strong></h5>
-            <p class="card-text">kmlamldmalkdmadkalmdakdadllsmlk</p>
+            <p class="card-text">{{ $user->introduction }}</p>
             <hr>
             <h5 class="card-text"><strong>注册于</strong></h5>
             <p class="card-text">{{ $user->created_at->diffForHumans() }}</p>
