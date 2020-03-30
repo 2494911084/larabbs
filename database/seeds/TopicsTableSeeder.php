@@ -2,15 +2,20 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Topic;
+use App\Models\User;
+use App\Models\Category;
 
 class TopicsTableSeeder extends Seeder
 {
     public function run()
     {
-        $topics = factory(Topic::class)->times(50)->make()->each(function ($topic, $index) {
-            if ($index == 0) {
-                // $topic->field = 'value';
-            }
+        $faker = app(Faker\Generator::class);
+        $users_id = User::all()->pluck('id')->toArray();
+        $categories_id = Category::all()->pluck('id')->toArray();
+        $topics = factory(Topic::class)->times(50)->make()->each(function ($topic, $index)
+            use ($faker, $users_id, $categories_id) {
+            $topic->user_id = $faker->randomElement($users_id);
+            $topic->category_id = $faker->randomElement($categories_id);
         });
 
         Topic::insert($topics->toArray());
