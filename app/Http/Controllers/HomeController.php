@@ -13,6 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(Auth()->user()->hasVerifiedEmail());
         return view('home');
     }
 }
