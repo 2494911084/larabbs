@@ -10,17 +10,14 @@ class TopicRequest extends Request
         {
             // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
             // UPDATE
             case 'PUT':
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'title' => 'required|min:3',
+                    'category_id' => 'required|numeric',
+                    'body' => 'required|min:3',
                 ];
             }
             case 'GET':
@@ -30,6 +27,13 @@ class TopicRequest extends Request
                 return [];
             }
         }
+    }
+
+    public function attributes()
+    {
+        return [
+            'category_id' => '分类',
+        ];
     }
 
     public function messages()

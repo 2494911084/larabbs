@@ -53,7 +53,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body">
-                右侧暂无数据!
+                <a href="{{ route('topics.create') }}" class="btn btn-success btn-block">发布帖子</a>
             </div>
         </div>
     </div>
