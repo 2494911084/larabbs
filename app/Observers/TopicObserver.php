@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Topic;
-use App\Handlers\TranslateHandler;
+use App\Jobs\TranslateSlug;
 
 // creating, created, updating, updated, saving,
 // saved,  deleting, deleted, restoring, restored
@@ -26,6 +26,6 @@ class TopicObserver
 
         $topic->excerpt = make_excerpt($topic->body);
 
-        $topic->slug = app(TranslateHandler::class)->baiduTranslate($topic->title);;
+        TranslateSlug::dispatch($topic);
     }
 }
