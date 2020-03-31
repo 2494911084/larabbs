@@ -15,10 +15,13 @@ Auth::routes(['verify' => true]);
 
 Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
 
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 
 Route::get('categories/{category}', 'CategoriesController@show')->name('categories.show');
 
 Route::get('/', 'TopicsController@index')->name('index');
 
 Route::post('topics/uploadImage', 'TopicsController@uploadImage')->name('topics.uploadImage');
+

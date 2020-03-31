@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('description', $topic->slug)
+
 @section('content')
 
 <div class="row">
