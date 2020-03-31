@@ -44,6 +44,7 @@
         {{-- 回复数据 --}}
         <div class="card">
             <div class="card-body">
+                @auth
                 @include('shared._errors')
                 <div>
                     <form action="{{ route('replies.store') }}" method="post">
@@ -58,6 +59,8 @@
                     </form>
                 </div>
                 <hr>
+                @endauth
+
                 <div class="mt-2">
                     @include('topics._replies', ['replies' => $topic->replies()->created()->with(['user', 'topic'])->paginate()])
                 </div>

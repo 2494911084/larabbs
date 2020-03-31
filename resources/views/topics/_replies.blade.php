@@ -6,12 +6,13 @@
     <div class="media-body">
       <div class="media-heading text-secondary">
         <a href="{{ route('users.show', $reply->user_id) }}">{{ $reply->user->name }}</a> · {{ $reply->created_at->diffForHumans() }}
+        @can('destroy', $reply)
         <form id="delete_form" action="{{ route('replies.destroy', $reply->id) }}" style="display: inline;" class="float-right" method="post" onsubmit="return confirm('确认删除回复?');">
           @csrf
           @method('DELETE')
           <a onclick="$('#delete_form').submit()">删除</a>
         </form>
-        {{-- <span class="float-right">删除</span> --}}
+        @endcan
       </div>
       <div class="media-body text-secondary">
         {{ $reply->content }}
