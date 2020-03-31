@@ -40,6 +40,29 @@
                 @endcan
             </div>
         </div>
+        <hr>
+        {{-- 回复数据 --}}
+        <div class="card">
+            <div class="card-body">
+                @include('shared._errors')
+                <div>
+                    <form action="{{ route('replies.store') }}" method="post">
+                        @csrf
+                      <div class="form-group">
+                        <textarea class="form-control" name="content" rows="3" placeholder="请发布您的回复"></textarea>
+                      </div>
+                      <input type="hidden" name="topic_id" value="{{ $topic->id }}">
+                      <div class="mt-2">
+                          <button type="submit" class="btn btn-success btn-sm">回复</button>
+                      </div>
+                    </form>
+                </div>
+                <hr>
+                <div class="mt-2">
+                    @include('topics._replies', ['replies' => $topic->replies()->created()->with(['user', 'topic'])->paginate()])
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

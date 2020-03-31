@@ -25,3 +25,5 @@ Route::get('/', 'TopicsController@index')->name('index');
 
 Route::post('topics/uploadImage', 'TopicsController@uploadImage')->name('topics.uploadImage');
 
+
+Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
