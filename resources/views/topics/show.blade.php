@@ -25,11 +25,17 @@
                 <div class="mt-2 topic-body">
                     {!! $topic->body !!}
                 </div>
+                @can('make', $topic)
                 <hr>
                 <div class="mt-4">
-                    <button type="button" class="btn btn-secondary">编辑</button>
-                    <button type="button" class="btn btn-secondary">删除</button>
+                    <a href="{{ route('topics.edit', $topic->id) }}" type="button" class="btn btn-secondary">编辑</a>
+                    <form onsubmit="return confirm('确认删除？');" action="{{ route('topics.destroy', $topic->id) }}" style="display: inline;" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-secondary">删除</button>
+                    </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

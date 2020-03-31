@@ -26,7 +26,7 @@
                         <a href=""><img class="mr-3 img-thumbnail" src="{{ $topic->user->avatar }}" width="48" height="48" alt="Generic placeholder image"></a>
                         <div class="media-body text-secondary">
                           <div class="media-heading">
-                            <a href="" class="text-secondary">{{ $topic->title }}</a>
+                            <a href="{{ route('topics.show', $topic->id) }}" class="text-secondary">{{ $topic->title }}</a>
                             <span class="float-right text-secondary">{{ $topic->reply_count }}</span>
                           </div>
                           <div class="media-body mt-2">

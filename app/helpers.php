@@ -1,7 +1,7 @@
 <?php
 
-function make_excerpt($text, $length=200)
+function make_excerpt($text, $length = 200)
 {
-    $text = trim(preg_replace('/\n\r|\n|\r+/', '' ,strap_tags($text)));
-    return \Str::limit($text, $length);
+    $value = trim(preg_replace('/\n\r|\n|\r+/', '', strip_tags($text)));
+    return \Str::limit($value, $length);
 }
