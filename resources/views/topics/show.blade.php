@@ -2,62 +2,37 @@
 
 @section('content')
 
-<div class="container">
-  <div class="col-md-10 offset-md-1">
-    <div class="card ">
-      <div class="card-header">
-        <h1>Topic / Show #{{ $topic->id }}</h1>
-      </div>
-
-      <div class="card-body">
-        <div class="card-block bg-light">
-          <div class="row">
-            <div class="col-md-6">
-              <a class="btn btn-link" href="{{ route('topics.index') }}"><- Back</a>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">作者：<a class="text-secondary" href="{{ route('users.show', $topic->user_id) }}">{{ $topic->user->name }}</a></div>
+                <hr>
+                <a href="{{ route('users.show', $topic->user_id) }}"><img src="{{ $topic->user->avatar }}" class="thumbnail img-fluid" width="300" alt=""></a>
             </div>
-            <div class="col-md-6">
-              <a class="btn btn-sm btn-warning float-right mt-1" href="{{ route('topics.edit', $topic->id) }}">
-                Edit
-              </a>
-            </div>
-          </div>
         </div>
-        <br>
-
-        <label>Title</label>
-<p>
-	{{ $topic->title }}
-</p> <label>Body</label>
-<p>
-	{{ $topic->body }}
-</p> <label>User_id</label>
-<p>
-	{{ $topic->user_id }}
-</p> <label>Category_id</label>
-<p>
-	{{ $topic->category_id }}
-</p> <label>Last_reply_user_id</label>
-<p>
-	{{ $topic->last_reply_user_id }}
-</p> <label>Reply_count</label>
-<p>
-	{{ $topic->reply_count }}
-</p> <label>View_count</label>
-<p>
-	{{ $topic->view_count }}
-</p> <label>Order</label>
-<p>
-	{{ $topic->order }}
-</p> <label>Excerpt</label>
-<p>
-	{{ $topic->excerpt }}
-</p> <label>Slug</label>
-<p>
-	{{ $topic->slug }}
-</p>
-      </div>
     </div>
-  </div>
+
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center mt-3 mb-4">{{ $topic->title }}</h1>
+                <p class="mt-2 text-secondary text-center">
+                    {{ $topic->created_at->diffForHumans() }}
+                    ·
+                    {{ $topic->reply_count }} 回复
+                </p>
+                <div class="mt-2 topic-body">
+                    {!! $topic->body !!}
+                </div>
+                <hr>
+                <div class="mt-4">
+                    <button type="button" class="btn btn-secondary">编辑</button>
+                    <button type="button" class="btn btn-secondary">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
