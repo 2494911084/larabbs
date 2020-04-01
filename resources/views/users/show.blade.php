@@ -26,15 +26,18 @@
             <div class="card-body">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#">我的帖子</a>
+                    <a class="nav-link {{ active_class(!if_query('type', 'reply')) }}" href="{{ Request::url() }}?type=default">我的帖子</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">我的回复</a>
+                    <a class="nav-link {{ active_class(if_query('type', 'reply')) }}" href="{{ Request::url() }}?type=reply">我的回复</a>
                   </li>
                 </ul>
-                <hr>
                 <div class="mt-2">
+                    @if (if_query('type', 'reply'))
+                    @include('users.replies', ['replies' => $user->replies()->created()->with(['user', 'topic'])->paginate(5)])
+                    @else
                     @include('users.topics', ['topics' => $user->topics()->created()->with(['user', 'category'])->paginate(5)])
+                    @endif
                 </div>
             </div>
         </div>

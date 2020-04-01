@@ -9,7 +9,7 @@
 </ul>
 
 <div class="mt-3 ml-3">
-    {!! $topics->links() !!}
+    {!! $topics->appends(Request::except('page'))->links() !!}
 </div>
 
 @else
